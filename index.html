@@ -30,45 +30,48 @@
                 <div class="filter__item">
                     <div class="filter__name">Blur:</div>
                     <div class="range-slider">
-                        <input class="range-slider__range" type="range" value="100" min="0" max="500">
-                        <span class="range-slider__value">0</span>
+                        <input class="range-slider__range js-filter-blur" type="range" value="0" min="0" max="100">
+                        <span class="range-slider__value js-filter-blur-label">0</span>
                     </div>
                 </div>
                 <div class="filter__item">
                     <div class="filter__name">Invert:</div>
                     <div class="range-slider">
-                        <input class="range-slider__range" type="range" value="100" min="0" max="500">
-                        <span class="range-slider__value">0</span>
+                        <input class="range-slider__range js-filter-invert" type="range" value="0" min="0" max="100">
+                        <span class="range-slider__value js-filter-invert-label">0</span>
                     </div>
                 </div>
                 <div class="filter__item">
                     <div class="filter__name">Saturate:</div>
                     <div class="range-slider">
-                        <input class="range-slider__range" type="range" value="100" min="0" max="500">
-                        <span class="range-slider__value">0</span>
+                        <input class="range-slider__range js-filter-saturate" type="range" value="100" min="0"
+                            max="200">
+                        <span class="range-slider__value js-filter-saturate-label">100</span>
                     </div>
                 </div>
                 <div class="filter__item">
                     <div class="filter__name">Sepia:</div>
                     <div class="range-slider">
-                        <input class="range-slider__range" type="range" value="100" min="0" max="500">
-                        <span class="range-slider__value">0</span>
+                        <input class="range-slider__range js-filter-sepia" type="range" value="0" min="0" max="100">
+                        <span class="range-slider__value js-filter-sepia-label">0</span>
                     </div>
                 </div>
                 <div class="filter__item">
                     <div class="filter__name">Hue rotate:</div>
                     <div class="range-slider">
-                        <input class="range-slider__range" type="range" value="100" min="0" max="500">
-                        <span class="range-slider__value">0</span>
+                        <input class="range-slider__range js-filter-hue" type="range" value="0" min="0" max="360">
+                        <span class="range-slider__value js-filter-hue-label">0</span>
                     </div>
                 </div>
             </div>
-            <img class="main-content__image" src="./assets/_KKP2645.jpg" alt="photo">
+            <img class="main-content__image blur" src="./assets/_KKP2645.jpg" alt="photo">
             <aside class="aside-right">
                 <ul class="aside-right__list">
-                    <li class="aside-right__item">Reset</li>
-                    <li class="aside-right__item next">Next</li>
-                    <li class="aside-right__item">Load</li>
+                    <li class="aside-right__item reset-js">Reset</li>
+                    <li class="aside-right__item next-js">Next</li>
+                    <div class="aside-right__item">
+                        <label><input id="fl_inp" type="file" name="file">Load</label>
+                    </div>
                     <li class="aside-right__item">Save picture</li>
                 </ul>
             </aside>

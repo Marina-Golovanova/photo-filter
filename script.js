@@ -34,7 +34,7 @@ function getImage() {
 
 getImage();
 
-const $next = document.querySelector('.next');
+const $next = document.querySelector('.next-js');
 $next.onclick = () => {
 
     hour = +hour + 1;
@@ -46,4 +46,60 @@ $next.onclick = () => {
     }
 
     $image.src = $image.src.slice(0, $image.src.length - 6) + hour + '.jpg'
+}
+
+const userSrc = document.getElementById('fl_inp').onchange = (e) => {
+    const file = e.target.files[0];
+    const url = URL.createObjectURL(file);
+    $image.src = url;
+}
+
+const $valueBlur = document.querySelector('.js-filter-blur-label');
+const $blur = document.querySelector('.js-filter-blur');
+
+const $valueInvert = document.querySelector('.js-filter-invert-label');
+const $invert = document.querySelector('.js-filter-invert');
+
+const $valueSaturate = document.querySelector('.js-filter-saturate-label');
+const $saturate = document.querySelector('.js-filter-saturate');
+
+const $valueSepia = document.querySelector('.js-filter-sepia-label');
+const $sepia = document.querySelector('.js-filter-sepia');
+
+const $valueHue = document.querySelector('.js-filter-hue-label');
+const $hue = document.querySelector('.js-filter-hue');
+
+$blur.oninput = (e) => {
+    let prevFilter = $image.style.filter;
+    prevFilter = prevFilter.split(' ').filter((el) => !/^blur/.test(el)).join(' ')
+    $image.style.filter = prevFilter + ' ' + `blur(${e.target.value}px)`;
+    $valueBlur.textContent = e.target.value;
+}
+
+$invert.oninput = (e) => {
+    let prevFilter = $image.style.filter;
+    prevFilter = prevFilter.split(' ').filter((el) => !/^invert/.test(el)).join(' ')
+    $image.style.filter = prevFilter + ' ' + `invert(${e.target.value}%)`;
+    $valueInvert.textContent = e.target.value;
+}
+
+$saturate.oninput = (e) => {
+    let prevFilter = $image.style.filter;
+    prevFilter = prevFilter.split(' ').filter((el) => !/^saturate/.test(el)).join(' ')
+    $image.style.filter = prevFilter + ' ' + `saturate(${e.target.value}%)`;
+    $valueSaturate.textContent = e.target.value;
+}
+
+$sepia.oninput = (e) => {
+    let prevFilter = $image.style.filter;
+    prevFilter = prevFilter.split(' ').filter((el) => !/^sepia/.test(el)).join(' ')
+    $image.style.filter = prevFilter + ' ' + `sepia(${e.target.value}%)`;
+    $valueSepia.textContent = e.target.value;
+}
+
+$hue.oninput = (e) => {
+    let prevFilter = $image.style.filter;
+    prevFilter = prevFilter.split(' ').filter((el) => !/^hue/.test(el)).join(' ')
+    $image.style.filter = prevFilter + ' ' + `hue-rotate(${e.target.value}deg)`;
+    $valueHue.textContent = e.target.value;
 }

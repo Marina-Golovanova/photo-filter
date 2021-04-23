@@ -197,3 +197,12 @@ body {
     max-height: 30px;
     margin-left: auto;
 }
+
+.aside-right__item label {
+    cursor: inherit;
+}
+
+#fl_inp{
+    display: none;
+}
+
