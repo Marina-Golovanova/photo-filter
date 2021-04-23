@@ -25,10 +25,14 @@ function getImage() {
     } else if (hour >= 12 && hour < 18) {
         $image.src = `./assets/images/day/${hour}.jpg`
     } else if (hour >= 18 && hour < 24) {
-        $image.src = `./assets/images/evening/${hour}.jpg`
+        if (hour > 20) {
+            newHour = "0" + String(hour)[1];
+            $image.src = `./assets/images/evening/${newHour}.jpg`
+        } else {
+            $image.src = `./assets/images/evening/${hour}.jpg`
+        }
     }
 
-    console.log($image.src)
     return $image.src;
 }
 
@@ -36,21 +40,27 @@ getImage();
 
 const $next = document.querySelector('.next-js');
 $next.onclick = () => {
-
-    hour = +hour + 1;
-    if (hour > 20) {
-        hour = 1;
+    if (/assets/.test($image.src)) {
+        hour = +hour + 1;
+        if (hour > 20) {
+            hour = "0" + String(hour)[1];
+        }
+        if (String(hour).length < 2) {
+            hour = '0' + hour;
+        }
+        $image.src = $image.src.slice(0, $image.src.length - 6) + hour + '.jpg';
+    } else {
+        hour = date.getHours();
+        getImage();
     }
-    if (String(hour).length < 2) {
-        hour = '0' + hour;
-    }
-
-    $image.src = $image.src.slice(0, $image.src.length - 6) + hour + '.jpg'
 }
 
 const userSrc = document.querySelector('.file-input').onchange = (e) => {
     const file = e.target.files[0];
-    const url = URL.createObjectURL(file);
+    let url = URL.createObjectURL(file);
+    $image.onload = () => {
+        URL.revokeObjectURL(url);
+    }
     $image.src = url;
 }
 
