@@ -123,3 +123,26 @@ $reset.onclick = () => {
     $hue.value = 0;
     $valueHue.textContent = 0;
 }
+
+const $saveImg = document.querySelector('.save-js');
+
+$saveImg.onclick = () => {
+    const $canvas = document.createElement('canvas');
+
+    const computedStyle = getComputedStyle($image);
+    $canvas.width = parseInt(computedStyle.width);
+    $canvas.height = parseInt(computedStyle.height);
+
+    const ctx = $canvas.getContext('2d');
+
+    ctx.filter = $image.style.filter;
+
+    ctx.drawImage($image, 0, 0, parseInt(computedStyle.width), parseInt(computedStyle.height));
+
+    const url = $canvas.toDataURL('image/png');
+
+    const $a = document.createElement('a');
+    $a.href = url;
+    $a.download = 'img.png';
+    $a.click();
+}
