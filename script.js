@@ -103,3 +103,23 @@ $hue.oninput = (e) => {
     $image.style.filter = prevFilter + ' ' + `hue-rotate(${e.target.value}deg)`;
     $valueHue.textContent = e.target.value;
 }
+
+const $reset = document.querySelector('.reset-js');
+$reset.onclick = () => {
+    $image.style.filter = '';
+
+    $blur.value = 0;
+    $valueBlur.textContent = 0;
+
+    $invert.value = 0;
+    $valueInvert.textContent = 0;
+
+    $saturate.value = 100;
+    $valueSaturate.textContent = 100;
+
+    $sepia.value = 0;
+    $valueSepia.textContent = 0;
+
+    $hue.value = 0;
+    $valueHue.textContent = 0;
+}
