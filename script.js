@@ -36,12 +36,14 @@ getImage();
 
 const $next = document.querySelector('.next');
 $next.onclick = () => {
-    hour += 1;
+
+    hour = +hour + 1;
     if (hour > 20) {
         hour = 1;
-    } else if (hour < 10) {
-        hour = '0' + 'hour';
+    }
+    if (String(hour).length < 2) {
+        hour = '0' + hour;
     }
 
-    getImage();
+    $image.src = $image.src.slice(0, $image.src.length - 6) + hour + '.jpg'
 }
