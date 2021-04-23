@@ -82,6 +82,35 @@ body {
     display: flex;
     width: 95%;
     margin: 0 auto;
+    position: relative;
+}
+
+.screen {
+    top: 3%;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+    transition: transform .3s, color .3s;
+}
+
+.full-screen {
+    font-size: 2vw;
+    color: rgba(233, 233, 233, 0.8);
+}
+
+.full-screen:hover {
+    transform: scale(1.2);
+    color: #fff;
+}
+
+.exit-full-screen {
+    font-size: 3vw;
+    color: #fff;
+}
+
+.exit-full-screen:hover {
+    transform: scale(0.8);
+    color: rgba(233, 233, 233, 0.8);
 }
 
 .header {
@@ -202,7 +231,7 @@ body {
     cursor: inherit;
 }
 
-#fl_inp{
+.file-input {
     display: none;
 }
 

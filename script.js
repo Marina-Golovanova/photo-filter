@@ -48,7 +48,7 @@ $next.onclick = () => {
     $image.src = $image.src.slice(0, $image.src.length - 6) + hour + '.jpg'
 }
 
-const userSrc = document.getElementById('fl_inp').onchange = (e) => {
+const userSrc = document.querySelector('.file-input').onchange = (e) => {
     const file = e.target.files[0];
     const url = URL.createObjectURL(file);
     $image.src = url;
@@ -145,4 +145,27 @@ $saveImg.onclick = () => {
     $a.href = url;
     $a.download = 'img.png';
     $a.click();
+}
+
+const $fullScreen = document.querySelector('.full-screen');
+const $exitFullScreen = document.querySelector('.exit-full-screen');
+$fullScreen.onclick = () => {
+    document.body.requestFullscreen();
+    $fullScreen.classList.add('hidden');
+    $exitFullScreen.classList.remove('hidden');
+}
+
+$exitFullScreen.onclick = () => {
+    document.exitFullscreen();
+    $fullScreen.classList.remove('hidden');
+    $exitFullScreen.classList.add('hidden');
+}
+
+window.onbeforeunload = (e) => {
+    const answer = confirm('Changes may not be saved');
+    if (!answer) {
+        e.preventDefault();
+    }
+
+    return answer;
 }

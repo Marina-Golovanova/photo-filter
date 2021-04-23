@@ -26,11 +26,13 @@
     <main class="main-content hidden">
         <h2 class="header">Photo-filter online</h2>
         <div class="layout">
+            <i class="fas fa-expand screen full-screen"></i>
+            <i class="fas fa-compress screen exit-full-screen hidden"></i>
             <div class="filters">
                 <div class="filter__item">
                     <div class="filter__name">Blur:</div>
                     <div class="range-slider">
-                        <input class="range-slider__range js-filter-blur" type="range" value="0" min="0" max="100">
+                        <input class="range-slider__range js-filter-blur" type="range" value="0" min="0" max="10">
                         <span class="range-slider__value js-filter-blur-label">0</span>
                     </div>
                 </div>
@@ -70,7 +72,7 @@
                     <li class="aside-right__item reset-js">Reset</li>
                     <li class="aside-right__item next-js">Next</li>
                     <div class="aside-right__item">
-                        <label><input id="fl_inp" type="file" name="file">Load</label>
+                        <label><input class="file-input" type="file" name="file">Load</label>
                     </div>
                     <li class="aside-right__item save-js">Save picture</li>
                 </ul>
