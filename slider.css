@@ -59,3 +59,9 @@
     content: '';
   }
   
+
+@media (max-width: 900px) {
+  .range-slider__value {
+    padding: 5px 0;
+  }
+}

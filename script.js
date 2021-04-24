@@ -155,12 +155,15 @@ $saveImg.onclick = () => {
     $a.click();
 }
 
+const $aside = document.querySelector('.aside-right');
 const $fullScreen = document.querySelector('.full-screen');
 const $exitFullScreen = document.querySelector('.exit-full-screen');
 $fullScreen.onclick = () => {
     document.body.requestFullscreen();
     $fullScreen.classList.add('hidden');
     $exitFullScreen.classList.remove('hidden');
+    $aside.style.height = '130vh';
+    $aside.style.margin = '-14vh -2.5vw';
 }
 
 $exitFullScreen.onclick = () => {
@@ -169,6 +172,13 @@ $exitFullScreen.onclick = () => {
     $exitFullScreen.classList.add('hidden');
 }
 
+document.addEventListener('fullscreenchange', (event) => {
+    if (!document.fullscreenElement) {
+        $fullScreen.classList.remove('hidden');
+        $exitFullScreen.classList.add('hidden');
+    }
+});
+
 window.onbeforeunload = (e) => {
     const answer = confirm('Changes may not be saved');
     if (!answer) {
@@ -176,4 +186,17 @@ window.onbeforeunload = (e) => {
     }
 
     return answer;
+}
+
+const $menu = document.querySelector('.burger-menu');
+$menu.onclick = (e) => {
+    $aside.classList.remove('aside-right');
+    $aside.classList.add('aside-right-active');
+}
+
+document.onclick = function (e) {
+    if (e.target != $menu) {
+        $aside.classList.add('aside-right');
+        $aside.classList.remove('aside-right-active');
+    }
 }
