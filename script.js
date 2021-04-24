@@ -15,7 +15,7 @@ $startButton.onclick = () => {
 
 function getImage() {
     if (hour < 6) {
-        $image.src = `./assets/image/night/0${hour}.jpg`
+        $image.src = `./assets/images/night/0${hour}.jpg`
     }
 
     else if (hour >= 6 && hour < 10) {
@@ -55,13 +55,11 @@ $next.onclick = () => {
     }
 }
 
-const userSrc = document.querySelector('.file-input').onchange = (e) => {
+document.querySelector('.file-input').onchange = (e) => {
     const file = e.target.files[0];
-    let url = URL.createObjectURL(file);
-    $image.onload = () => {
-        URL.revokeObjectURL(url);
-    }
+    const url = URL.createObjectURL(file);
     $image.src = url;
+    document.querySelector('.file-input').value = '';
 }
 
 const $valueBlur = document.querySelector('.js-filter-blur-label');
