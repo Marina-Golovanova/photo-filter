@@ -254,6 +254,10 @@ body {
     display: none;
 }
 
+.aside-right-active {
+    display: none;
+}
+
 @media (max-width: 900px) {
     .header {
         height: 35px;
