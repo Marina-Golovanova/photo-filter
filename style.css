@@ -312,6 +312,8 @@ body {
 
 .footer-content {
     height: 20vh;
+    max-height: 50px;
+
 }
 
 .footer__icon {
