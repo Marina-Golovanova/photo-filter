@@ -296,10 +296,9 @@ body {
         display: flex;
         justify-content: center;
         width: 100vw;
-        margin-top: -26vh;
         border: 1px solid rgba(233,233,233, 0.2);
         position: absolute;
-        height: 243vh;
+        height: 100vh;
         background: rgba(0, 0, 0, 0.7);
         margin-left: -2.5vw;
     }

@@ -162,8 +162,8 @@ $fullScreen.onclick = () => {
     document.body.requestFullscreen();
     $fullScreen.classList.add('hidden');
     $exitFullScreen.classList.remove('hidden');
-    $aside.style.height = '130vh';
-    $aside.style.margin = '-14vh -2.5vw';
+    // $aside.style.height = '130vh';
+    // $aside.style.margin = '-14vh -2.5vw';
 }
 
 $exitFullScreen.onclick = () => {
