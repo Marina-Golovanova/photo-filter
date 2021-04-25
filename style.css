@@ -318,3 +318,35 @@ body {
 .footer__icon {
     height: 10vh;
 }
+
+@media (max-width: 640px) {
+    .start-page__image {
+        width: auto;
+        height: 100vh;
+    }
+
+    .main-content .layout {
+        flex-direction: column-reverse;
+        margin-top: 0;
+    }
+
+    .aside-right-active {
+        height: auto;
+        top: 0;
+    }
+
+    .aside-right__item {
+        width: 29vw;
+        height: 5vh;
+        margin: 3vh;
+    }
+
+    .full-screen {
+        font-size: 4vw;
+    }
+
+    .main-content__image {
+        width: 100%;
+        margin-top: 12%;
+    }
+}
