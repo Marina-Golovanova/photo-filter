@@ -137,15 +137,14 @@ const $saveImg = document.querySelector('.save-js');
 $saveImg.onclick = () => {
     const $canvas = document.createElement('canvas');
 
-    const computedStyle = getComputedStyle($image);
-    $canvas.width = parseInt(computedStyle.width);
-    $canvas.height = parseInt(computedStyle.height);
+    $canvas.width = $image.naturalWidth;
+    $canvas.height = $image.naturalHeight;
 
     const ctx = $canvas.getContext('2d');
 
     ctx.filter = $image.style.filter;
 
-    ctx.drawImage($image, 0, 0, parseInt(computedStyle.width), parseInt(computedStyle.height));
+    ctx.drawImage($image, 0, 0, $image.naturalWidth, $image.naturalHeight);
 
     const url = $canvas.toDataURL('image/png');
 
@@ -162,8 +161,6 @@ $fullScreen.onclick = () => {
     document.body.requestFullscreen();
     $fullScreen.classList.add('hidden');
     $exitFullScreen.classList.remove('hidden');
-    // $aside.style.height = '130vh';
-    // $aside.style.margin = '-14vh -2.5vw';
 }
 
 $exitFullScreen.onclick = () => {
