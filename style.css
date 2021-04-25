@@ -259,6 +259,7 @@ body {
 }
 
 @media (max-width: 900px) {
+
     .header {
         height: 35px;
     }

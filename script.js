@@ -190,13 +190,17 @@ window.onbeforeunload = (e) => {
 
 const $menu = document.querySelector('.burger-menu');
 $menu.onclick = (e) => {
-    $aside.classList.remove('aside-right');
-    $aside.classList.add('aside-right-active');
-}
-
-document.onclick = function (e) {
-    if (e.target != $menu) {
+    e.stopPropagation();
+    if ($aside.classList.contains('aside-right-active')) {
         $aside.classList.add('aside-right');
         $aside.classList.remove('aside-right-active');
+    } else {
+        $aside.classList.remove('aside-right');
+        $aside.classList.add('aside-right-active');
     }
+}
+
+document.body.onclick = (e) => {
+    $aside.classList.add('aside-right');
+    $aside.classList.remove('aside-right-active');
 }
