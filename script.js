@@ -142,7 +142,11 @@ $saveImg.onclick = () => {
 
     const ctx = $canvas.getContext('2d');
 
-    ctx.filter = $image.style.filter;
+    ctx.filter = $image.style.filter.split(' ').map((el) => {
+        return el.startsWith('blur')
+            ? el.replace(/\d+/, v => v * $image.naturalHeight / $image.height)
+            : el
+    }).join(' ')
 
     ctx.drawImage($image, 0, 0, $image.naturalWidth, $image.naturalHeight);
 
